@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AIDS</title>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet">
+    <!-- Include the jQuery library -->
+    <script src="js/jquery-1.11.3.min.js">
+    </script>
+    <!-- Include the jQuery Mobile library -->
+    <script src="js/jquery.mobile-1.4.5.min.js">
+    </script>
+    <link href="css/google-icon.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script>
+    jQuery(document).ready(function($) {
+        $('#bklocation').text(sessionStorage.bookinglocation);
+        $('#bktype').text(sessionStorage.bookingtype + " Test");
+    });
+    </script>
+</head>
+
+<body>
+    <section id="page" data-role="page">
+
+        <header data-role="header">
+            <a class="ui-btn-c ui-btn-inline" data-rel="back" data-transition="slidedown" data-theme="c"><i class="material-icons menu-bar-icon">reply</i></a>
+            <h1 class="ui-title-c" id="bktype">Booking Type</h1>
+        </header>
+        <!-- /header -->
+        <article data-role="content">
+            <div id="map-name" style="height:300px !important; width:100% !important"></div>
+            <br>
+            <form>
+                <h2 id="bklocation">Location Name</h2>
+                <label for="bkdate">Date:</label>
+                <select name="bkdate" id="bkdate">
+                    <option>Choose the date</option>
+                    <option value="2016-08-01">2016-08-01</option>
+                    <option value="2016-08-26">2016-08-03</option>
+                    <option value="2016-09-03">2016-08-05</option>
+                    <option value="2016-08-26">2016-08-12</option>
+                    <option value="2016-09-03">2016-08-20</option>
+                    <option value="2016-08-26">2016-08-26</option>
+                    <option value="2016-09-03">2016-09-03</option>
+                    <option value="2016-08-26">2016-09-06</option>
+                    <option value="2016-09-03">2016-09-10</option>
+                    <option value="2016-08-26">2016-09-12</option>
+                    <option value="2016-09-03">2016-09-13</option>
+                </select>
+                <label for="bktime">time:</label>
+                <select name="bktime" id="bktime">
+                    <option>Choose the time</option>
+                    <option value="11:00:00">11:00</option>
+                    <option value="15:00:00">15:00</option>
+                    <option value="18:00:00">18:00</option>
+                </select>
+                <h4>Enter your password to confirm the booking</h4>
+                <label for="usrpass">Password:</label>
+                <input type="password" name="usrpass" id="usrpass" placeholder="Password">
+                <br>
+                <input type="button" id="bookit" value="Book It">
+                <br>
+                <h3><a data-rel="back" data-transition="slidedown">Back</a></h3>
+            </form>
+            <div data-role="popup" id="popupBasic" class="ui-content" style="height:160px;text-align:center;text-shadow:none">
+                <img src="http://www.liquidpixels.com/images/icon-error.png" alt="" style="width:30%;">
+                <h3>Password is Wrong!<h3>
+                </div>
+
+        </article>
+        <!-- /content -->
+            <script>
+       $("#bookit").click(function(){
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.api.m4nfa1.net/305cde/user/login',
+                data: {
+                    usrname: sessionStorage.userlogin,
+                    usrpass: $('#usrpass').val()
+                },
+                success: function(data) {
+                    console.log(data);
+                    // check the status of return, 200 is OK and 404 is not found the user.
+                    if (data.status == '200') {
+                        $.ajax({
+                                type: 'GET',
+                                url: 'http://www.api.m4nfa1.net/305cde/booking/book',
+                                data: {
+                                    bklocation: sessionStorage.bookinglocation,
+                                    bktype: sessionStorage.bookingtype,
+                                    bkuser: sessionStorage.userlogin,
+                                    bkdate: $('#bkdate').val(),
+                                    bktime: $('#bktime').val(),
+                                },
+                                success: function(data) {
+                                    console.log(data);
+                                    window.location.href="booking.html";
+                                    alert("Booking Success");
+                                }
+                            });
+                    } else {
+                        // if 404, the app warning to user that login have error
+                        $('#popupBasic').popup("open");
+                    }
+                },
+                error: function(data) {
+                    console.log('Error');
+                }
+            });
+
+
+                });
+            </script>
+            <script>
+            var map;
+
+            function initMap() {
+                var chicago = new google.maps.LatLng(22.4929789, 114.1265259);
+                map = new google.maps.Map(document.getElementById('map-name'), {
+                    center: chicago,
+                    zoom: 16
+                });
+                var styles = [{
+                    stylers: [{
+                        hue: "#B71C1C"
+                    }, {
+                        saturation: -20
+                    }]
+                }, {
+                    featureType: "poi.medical",
+                    elementType: "geometry.fill",
+                    stylers: [{
+                        lightness: -50
+                    }, {
+                        visibility: "on"
+                    }, {
+                        hue: "#FFEBEE"
+                    }, {
+                        invert_lightness: true
+                    }]
+                }];
+                map.setOptions({
+                    styles: styles
+                });
+            }
+            </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNpbKKFYd0-155VwtA9lnFlSou0rwKy0U&callback=initMap">
+            </script>
+
+    </section>
+    <!-- /page -->
+</body>
+
+</html>

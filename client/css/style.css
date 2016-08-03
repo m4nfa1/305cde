@@ -1,0 +1,309 @@
+html,
+body {
+    min-height:100%; height:100%; 
+    overflow-x: hidden;
+    display: block;
+}
+
+.ui-panel-inner {
+    padding: 0 !important;
+    text-shadow: none;
+}
+
+#myPanel {
+    background: #f6f6f6 !important;
+    overflow-y: hidden;
+}
+
+header {
+    background: #f44336 !important;
+    /* padding:5px 0 !important; */
+    height: 60px !important;
+    text-shadow: none !important;
+    text-color: #fff !important;
+    color: #fff !important;
+    text-align: left !important;
+    border: none !important;
+    box-shadow: 0px 1px 5px #666;
+
+}
+
+#statusbar {
+    background: #D32F2F;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 23px;
+    z-index: 200;
+}
+
+form p {
+    text-align: center;
+}
+
+.ui-title-c {
+    margin-left: 0 !important;
+    position: absolute !important;
+    left: 0;
+    font-size: 26px !important;
+    width: 100%;
+    text-align: left !important;
+    padding-left: 70px!important;
+    line-height: 30px !important;
+}
+
+.menu-bar-icon {
+    font-size: 33px;
+    line-height: 35px !important;
+}
+
+.ui-btn-c {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none;
+    z-index: 100;
+}
+
+.ui-btn-c i {
+    text-shadow: none;
+    color: white;
+}
+
+.panel-header {
+    background: #D32F2F;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 290px;
+    right: 0;
+    padding: 15px;
+    display: block;
+    color: white;
+}
+
+.panel-header .ui-btn {
+    background: #FFC400 !important;
+    border: none !important;
+    text-shadow: none !important;
+    color: white !important;
+}
+
+.panel-list {
+    padding-top: 315px;
+}
+
+.panel-list .ui-btn {
+    border: none !important;
+}
+
+.user-login img {
+    width: 70%;
+    border-radius: 50%;
+    margin-left: 14.8%;
+    margin-top: 5%;
+    border: none !important;
+}
+
+.user-login h2 {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#news {
+    padding: 10px 5px 40px 5px;
+    /* background:#37474F !important; */
+}
+
+#news-page {
+    background: #f6f6f6 !important;
+}
+
+#news h1 {
+    width: 100%;
+    text-shadow: none;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}
+
+.news-cards>div {
+    padding: 6px;
+}
+
+.news-cards-items {
+    background: #FFAB00;
+    min-height: 220px;
+    padding-bottom: 5px;
+    box-shadow: 0px 2px 5px #ccc;
+    position: relative;
+}
+
+.new-img img {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.news-cards-items p {
+    margin: 0;
+    padding: 0 5px;
+    color: #ffffff;
+    text-shadow: none !important;
+}
+
+.news-cards-items>.news-date {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    text-align: right;
+}
+
+.news-del{
+    position:absolute;
+    top:0;
+    right:0;
+    width:50px;
+    height:50px;
+    background:transparent !important;
+    border:none;
+    color:#f44336;
+}
+
+.news-del-hidden{
+    display:none;
+}
+
+.register-login-content .ui-input-btn {
+    background-color: #f44336 !important;
+    color: #fff !important;
+    text-shadow: none;
+    border: none;
+    padding: 17px 0px;
+}
+
+.register-login-content {
+    background: #f6f6f6 !important;
+    text-shadow: none;
+}
+
+.register-login-content h1 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.register-login-content b {
+    font-size: 36px;
+    color: #f44336;
+}
+
+.register-login-content h3 {
+    text-align: center;
+}
+
+.register-login-content form label {
+    font-size: 20px;
+}
+
+.register-login-content {
+    padding-top: 70px;
+}
+
+.register-login-content .logo {
+    width: 100%;
+    text-align: center;
+}
+
+.register-login-content p {
+    /* color:white; */
+}
+
+.register-login-content form input {
+    /* height:50px; */
+}
+
+.register-login-content select {
+    height: 60px !important;
+}
+
+.test-list a {
+    font-size: 18px;
+}
+
+.test-list-header {
+    padding: 15px 10px !important;
+    font-size: 18px !important;
+}
+
+#map {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 100px !important;
+}
+
+#Page0 {
+    background: url('../img/page0.jpg') top !important;
+    background-size: cover !important;
+}
+
+#Page1 {
+    background: url('../img/page1.jpg') left;
+    background-size: cover;
+}
+
+#Page2 {
+    background: url('../img/page2.jpg') top;
+    background-size: cover;
+}
+
+.intro-content {
+    background: transparent;
+    text-shadow: none;
+    color: white;
+    text-align: justify;
+}
+
+.intro-content p {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 150px;
+}
+
+.ui-content {
+    overflow: hidden !important;
+}
+.booking_card{
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px;
+    text-shadow: none;
+    background: #FFEB3B;
+    position: relative;
+}
+.booking_card>button{
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    color: #ccc;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    background: #333;
+}
+#manage{
+
+    background: #FF8A80;
+    text-shadow: none;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    top: 10px;
+    right: 10px;
+}

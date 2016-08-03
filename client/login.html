@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AIDS</title>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet">
+    <!-- Include the jQuery library -->
+    <script src="js/jquery-1.11.3.min.js">
+    </script>
+    <!-- Include the jQuery Mobile library -->
+    <script src="js/jquery.mobile-1.4.5.min.js">
+    </script>
+    <link href="css/google-icon.css" rel="stylesheet">
+    <!-- Include the style.css -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <section id="login-page" data-role="page">
+        <article data-role="content" class="register-login-content">
+            <div class="logo"><img src="img/logo.png" alt="" width="100px"></div>
+            <!-- login form -->
+            <form>
+                <label for="usrname">Username:</label>
+                <input type="text" name="usrname" id="usrname">
+                <label for="usrpass">Password:</label>
+                <input type="password" name="usrpass" id="usrpass">
+                <p></p>
+                <input type="submit" id="submit" value="Sign In">
+                <p>No Account?</p>
+                <p><a href="register.html" data-transition="pop">Sign Up!</a></p>
+                <p><a href="index.html" data-rel="back" data-transition="slidedown">Back</a></p>
+                <div data-role="popup" id="popupBasic" class="ui-content" style="height:160px;text-align:center;text-shadow:none">
+                    <img src="http://www.liquidpixels.com/images/icon-error.png" alt="" style="width:30%;">
+                    <h3>User Name or Password is Wrong!<h3>
+                </div>
+            </form>
+        </article>
+        <!-- /content -->
+        </div>
+        <script>
+        // submit the login data to php
+        $("form").submit(function() {
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.api.m4nfa1.net/305cde/user/login',
+                data: {
+                    usrname: $('#usrname').val(),
+                    usrpass: $('#usrpass').val()
+                },
+                success: function(data) {
+                    console.log(data);
+                    // check the status of return, 200 is OK and 404 is not found the user.
+                    if (data.status == '200') {
+                        // if login success -> we will storage the user name to sessionStorage
+                        sessionStorage.userlogin = data.data.user_loginname;
+                        window.location.href = "index.html";
+                    } else {
+                        // if 404, the app warning to user that login have error
+                        $('#popupBasic').popup("open");
+                    }
+                },
+                error: function(data) {
+                    console.log('Error');
+                }
+            });
+            return false;
+        });
+        </script>
+    </section>
+    <!-- /the end of page -->
+</body>
+
+</html>

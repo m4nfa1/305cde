@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AIDS</title>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet">
+    <!-- Include the jQuery library -->
+    <script src="js/jquery-1.11.3.min.js">
+    </script>
+    <!-- Include the jQuery Mobile library -->
+    <script src="js/jquery.mobile-1.4.5.min.js">
+    </script>
+    <link href="css/google-icon.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script>
+                $(document).ready(function($) {
+
+            // detect user is login or not and detect which user is logged.
+            if (typeof(Storage) == "undefined" || sessionStorage.userlogin == '') {
+                console.log('no user login');
+                // if its not logged, there will be hide some button
+                window.location='index.html';
+                $("#username").css({
+                    display: "none"
+                });
+                $("#signoutbtn").css({
+                    display: "none"
+                });
+                // if user logged, we will hide the signin button and show the signout button
+            } else if (sessionStorage.userlogin.length > 0) {
+                console.log(sessionStorage.userlogin);
+                console.log('login');
+                $("#username").text(sessionStorage.userlogin);
+                $("#signinbtn").css({
+                    display: "none"
+                });
+                $("#signupbtn").css({
+                    display: "none"
+                });
+            }
+
+            sessionStorage.bookinglocation = '';
+            sessionStorage.bookingtype = '';
+        });
+    </script> 
+</head>
+
+<body>
+    <section id="booking-page" data-role="page">
+        <div data-role="panel" id="myPanel" data-display="overlay">
+            <div class="panel-header">
+                <div class="user-login">
+                    <img src="img/photo.jpg" alt="">
+                    <p id="username" style="text-align:center">UserName</p>
+                    <a data-role="button" style="margin-bottom:10px" id="signoutbtn" onclick="signout();">Sign Out</a>
+                    <a href="login.html" data-transition="slideup" data-role="button" style="margin-bottom:10px" id="signinbtn">Sign In</a>
+                    <a href="register.html" data-transition="slideup" data-role="button" style="margin-bottom:10px" id="signupbtn">Sign Up</a>
+                </div>
+            </div>
+            <div class="panel-list">
+                <ul data-role="listview">
+                    <li data-icon="false"><a href="index.html" rel="external" data-transition="slideup">News</a></li>
+                    <li data-icon="false"><a onclick="window.location.reload()" rel="external" data-transition="slideup">Booking</a></li>
+                    <li data-icon="false"><a href="intro.html" rel="external" data-transition="slideup">AIDS</a></li>
+                    <li data-icon="false"><a href="contact.html" rel="external">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <header data-role="header">
+            <a class="ui-btn-c ui-btn-inline" href="#myPanel" data-theme="c"><i class="material-icons menu-bar-icon">menu</i></a>
+            <h1 class="ui-title-c">Booking</h1>
+        </header>
+        <!-- /header -->
+        <article data-role="content">
+            <h1><a href="check.html" rel="external" data-translation="slideup">Check Your Booking</a></h1>
+            <h3><i>If you would like to make an appointment or inquire the service hour of testing service, please call our AIDS Helpline at <a href="tel:25130513">2513-0513</a> or LINE at hivtesing.*</i></h3>
+            <br>
+            <ul data-role="listview" class="test-list">
+                <li data-role="list-divider" class="test-list-header">Conventional Test Location</li>
+                <li data-icon="false"><a data-rel="external" onclick="setConBooking(this.text)">Shaukeiwan</a></li>
+                <li data-role="list-divider" class="test-list-header">Rapid Test Locations</li>
+                <li data-icon="false"><a data-rel="external" onclick="setRapBooking(this.text)">Central</a></li>
+                <li data-icon="false"><a href="booking_detail.html" data-rel="external" onclick="setRapBooking(this.text)">Lai Chi Kok</a></li>
+                <li data-icon="false"><a href="booking_detail.html" data-rel="external" onclick="setRapBooking(this.text)">Shaukeiwan</a></li>
+            </ul>
+        </article>
+        <!-- /content -->
+        <script>
+                // if user click the signout button, these code can be clear the login data from sessionStorage.
+        function signout() {
+            sessionStorage.userlogin = '';
+            location.reload();
+        }
+        function setConBooking($thisname) {
+            sessionStorage.bookinglocation = $thisname;
+            sessionStorage.bookingtype = 'Conventional';
+            location.href = "booking_detail.html";
+        }
+
+        function setRapBooking($thisname) {
+            sessionStorage.bookinglocation = $thisname;
+            sessionStorage.bookingtype = 'Rapid';
+            location.href = "booking_detail.html";
+        }
+        </script>
+    </section>
+    <!-- /page -->
+</body>
+
+</html>

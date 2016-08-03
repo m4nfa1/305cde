@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AIDS</title>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet">
+    <!-- Include the jQuery library -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js">
+    </script>
+    <!-- Include the jQuery Mobile library -->
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+    </script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+<script>
+	$(document).ready(function($) {
+            if (typeof(Storage) == "undefined" || sessionStorage.userlogin == '') {
+                window.location='index.html';
+            }
+		$('#usrname').text(sessionStorage.userlogin);
+		 $.ajax({
+		 	type: 'POST',
+            dataType: 'json',
+                url: 'http://www.api.m4nfa1.net/305cde/user/check',
+                data: {
+                    usrname: sessionStorage.userlogin,
+                },
+            success: function(data) {
+               $('#usremail').val(data.data.user_email);
+            }
+        });
+	});
+</script>
+
+</head>
+
+<body>
+    <section id="register-page" data-role="page">
+        <article data-role="content" class="register-login-content" style="padding-top:20px">
+            <h1>Update your <b>P</b>rofile</h1>
+            <form>
+                <h1 id="usrname">Username:</h1>
+                <label for="usremail">Email:</label>
+                <input type="text" name="usremail" id="usremail">
+                <label for="usrpass">Password:</label>
+                <input type="password" name="usrpass" id="usrpass">
+                <label for="usrpass2">Confirm Password:</label>
+                <input type="password" name="usrpass2" id="usrpass2">
+                <p></p>
+                <input type="submit" id="submit" value="Update">
+                <br>
+                <h3><a data-rel="back" data-transition="slidedown">Back</a></h3>
+            </form>
+        </article>
+        <!-- /content -->
+
+<script>
+$("form").submit(function(){
+	$password = $('#usrpass').val();
+	if ($password=='') {
+		alert('cannot emtpy');
+	} else {
+     $.ajax({  
+    type: 'GET', 
+    url: 'http://www.api.m4nfa1.net/305cde/user/update', 
+    data: {
+        usrname: $('#usrname').text(),
+        usrpass: $('#usrpass').val(),
+        usremail: $('#usremail').val(),
+    },
+    success: function (data) { 
+        console.log(data);
+        sessionStorage.userlogin= $('#usrname').val();
+        window.location.href = "index.html";
+    },
+    error: function (data) {
+        console.log('Error');
+    }
+});
+ }
+    });
+    </script>
+
+    </section>
+    <!-- /page -->
+</body>
+
+</html>

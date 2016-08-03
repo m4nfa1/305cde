@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AIDS</title>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet">
+    <!-- Include the jQuery library -->
+    <script src="js/jquery-1.11.3.min.js">
+    </script>
+    <!-- Include the jQuery Mobile library -->
+    <script src="js/jquery.mobile-1.4.5.min.js">
+    </script>
+    <link href="css/google-icon.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script>
+    $(document).ready(function($) {
+
+        // detect user is login or not and detect which user is logged.
+        if (typeof(Storage) == "undefined" || sessionStorage.userlogin == '') {
+            console.log('no user login');
+            // if its not logged, there will be hide some button
+            $("#username").css({
+                display: "none"
+            });
+            $("#signoutbtn").css({
+                display: "none"
+            });
+            $('.bookinglist').append('<h1>Please Login!!!</h1>');
+            // if user logged, we will hide the signin button and show the signout button
+        }
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: 'http://www.api.m4nfa1.net/305cde/user/type',
+                data: {
+                    usrtype: 'user',
+                },
+                success: function(data) {
+                	console.log(data);
+                	if (!data.data) {
+                	$('.userlist').append('<h1>No User!!!</h1>');
+                	} else {
+                    $.each(data.data, function(index, element) {
+                        console.log(element);
+                        $name = element.user_loginname;
+                        $pass = element.user_password;
+                        $id = element.user_id;
+                        $('.userlist').append('<div class="ui-block-a clearfix"><p>' + $name + '</p><button name="' + $name + '" id="' + $pass + '" onclick="deleteuser(this.name, this.id)"><i class="material-icons" style="font-size: 36px;">delete</i></button></div></div>');
+                    });
+                }
+                }
+            });
+    });
+    </script>
+</head>
+
+<body>
+    <section id="booking-page" data-role="page">
+        <header data-role="header">
+            <a class="ui-btn-c ui-btn-inline" data-rel="back" data-theme="c"><i class="material-icons menu-bar-icon">reply</i></a>
+            <h1 class="ui-title-c">User List</h1>
+        </header>
+        <!-- /header -->
+        <article data-role="content">
+            <h1>AIDS's User</h1>
+            <div class="userlist ui-grid-solo">
+            </div>
+            <script>
+            function deleteuser(delname, delpass) {
+                console.log(delname);
+                console.log(delpass);
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://www.api.m4nfa1.net/305cde/user/delete',
+                    data: {
+                        usrname: delname,
+                        usrpass: delpass
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        window.location.reload();
+                    },
+                    error: function(data) {
+                        console.log('Error');
+                    }
+                });
+            }
+            </script>
+        </article>
+        <!-- /content -->
+    </section>
+    <!-- /page -->
+</body>
+
+</html>

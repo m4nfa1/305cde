@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AIDS</title>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet">
+    <!-- Include the jQuery library -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js">
+    </script>
+    <!-- Include the jQuery Mobile library -->
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+    </script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <section id="register-page" data-role="page">
+        <article data-role="content" class="register-login-content" style="padding-top:20px">
+            <h1>Create your <b>A</b>ccount</h1>
+            <h3>One free account gets you into everything AIDS. <a href="login.html" data-rel="external" data-transition="slidedown">Sign In</a></h3>
+            <br>
+            <form>
+                <label for="usrname" id="usrnamelabel">Username:</label>
+                <input type="text" name="usrname" id="usrname">
+                <label for="usremail">Email:</label>
+                <input type="text" name="usremail" id="usremail">
+                <label for="usrpass">Password:</label>
+                <input type="password" name="usrpass" id="usrpass">
+                <label for="usrpass2" id="usrpass2label">Confirm Password:</label>
+                <input type="password" name="usrpass2" id="usrpass2">
+                <label for="usrbday">Date:</label>
+                <input type="date" name="usrbday" id="usrbday" value="">
+                <!--                 <label for="utel">Phone:</label>
+                <input type="number" name="utel" id="utel"> -->
+                <label for="usrgender">Gender:</label>
+                <select name="usrgender" id="usrgender">
+                    <option>I am...</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="O">Other</option>
+                </select>
+                <p></p>
+                <input type="submit" id="submit" value="Sign Up">
+                <br>
+                <h3><a data-rel="back" data-transition="slidedown">Back</a></h3>
+            </form>
+            <div data-role="popup" id="popupBasic" class="ui-content" style="height:160px;text-align:center;text-shadow:none">
+                <img src="http://www.liquidpixels.com/images/icon-error.png" alt="" style="width:30%;">
+                <h3>The password and its confirm are not the same.<h3>
+                </div>
+        </article>
+        <!-- /content -->
+
+<script>
+$("form").submit(function(){
+
+$.ajax({  
+    type: 'POST', 
+    url: 'http://www.api.m4nfa1.net/305cde/user/check', 
+    data: {
+        usrname: $('#usrname').val(),
+    },
+    success: function (data) { 
+            if (data.status=='404') {
+                    $p1 = $("#usrpass").val();
+                    $p2 = $("#usrpass2").val();
+         if ($p1==$p2) {
+             $.ajax({  
+            type: 'POST', 
+            url: 'http://www.api.m4nfa1.net/305cde/user/register', 
+            data: {
+                usrname: $('#usrname').val(),
+                usrpass: $('#usrpass').val(),
+                usremail: $('#usremail').val(),
+                usrbday: $('#usrbday').val(),
+                usrgender: $('#usrgender').val(),
+            },
+            success: function (data) { 
+                console.log(data);
+                sessionStorage.userlogin= $('#usrname').val();
+                window.location.href = "index.html";
+            },
+            error: function (data) {
+                console.log('Error');
+            }
+        });
+         } else {
+            $('#usrnamelabel').css({
+                    color: 'black',
+                });
+                $('#usrpass2label').css({
+                    color: 'red',
+                });
+         }
+        } else {
+             $('#usrnamelabel').css({
+                    color: 'red',
+                });
+        }
+    },
+    error: function (data) {
+        console.log('Error');
+    }
+});
+    return false;
+    });
+    </script>
+
+    </section>
+    <!-- /page -->
+</body>
+
+</html>
