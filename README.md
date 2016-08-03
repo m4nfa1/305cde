@@ -9,8 +9,8 @@
 URI	http://api.m4nfa1.net/305cde/user/login
 Method	POST
 Data	{
-usrname = "user1",
-usrpasas = "user1",
+    usrname = "user1",
+    usrpasas = "user1"
 }
 Result	{
     "status": "200",
@@ -35,11 +35,11 @@ Error	{
 URI	http://api.m4nfa1.net/305cde/user/register
 Method	POST
 Data	{
-usrname = "user0",
-usrpasas = "user0",
-usremail = "user0@address.com",
-usrbday = "2000-01-01",
-usrgender = "M",
+    usrname = "user0",
+    usrpasas = "user0",
+    usremail = "user0@address.com",
+    usrbday = "2000-01-01",
+    usrgender = "M"
 }
 
 
@@ -60,9 +60,9 @@ Error	{
 URI	http://api.m4nfa1.net/305cde/user/update
 Method	GET
 Data	{
-usrname = "user0",
-usrpasas = "000",
-usremail = "user0@address.com"
+    usrname = "user0",
+    usrpasas = "000",
+    usremail = "user0@address.com"
 }
 Result	{
     "status": "200",
@@ -81,8 +81,8 @@ Error	{
 URI	http://api.m4nfa1.net/305cde/user/delete
 Method	GET
 Data	{
-usrname = "user0",
-usrpasas = "000",
+    usrname = "user0",
+    usrpasas = "000"
 }
 Result	{
     "status": "200",
@@ -101,7 +101,7 @@ Error	{
 URI	http://api.m4nfa1.net/305cde/user/type
 Method	POST
 Data	{
-usrtype = "user"
+    usrtype = "user"
 }
 Result	{
     "status": "200",
@@ -134,7 +134,7 @@ Error	{
 URI	http://api.m4nfa1.net/305cde/user/check
 Method	POST
 Data	{
-usrname = "user0",
+    usrname = "user0",
 }
 Result	{
     "status": "200",
@@ -188,7 +188,7 @@ Error	{
 URI	http://api.m4nfa1.net/305cde/booking/check
 Method	GET
 Data	{
-usrname = "user2",
+    usrname = "user2"
 }
 Result	{
     "status": "200",
@@ -217,11 +217,11 @@ Error	{
 URI	http://api.m4nfa1.net/305cde/booking/book
 Method	GET
 Data	{
-bklocation = "Central",
-bktype = "Rapid",
-bkuser = "user0"
-bkdate = "2016-08-26",
-bktime = "18:00:00",
+    bklocation = "Central",
+    bktype = "Rapid",
+    bkuser = "user0"
+    bkdate = "2016-08-26",
+    bktime = "18:00:00",
 }
 Result	{
     "status": "200",
@@ -237,11 +237,11 @@ Error	{
 --------------------------------------------------------------------------------------------------------------------------
 #### Delete Booking
 ```javascript
-URI:	http://api.m4nfa1.net/305cde/booking/delete
-Method:	GET
+URI	http://api.m4nfa1.net/305cde/booking/delete
+Method	GET
 Data	{
-bkid = "71",
-bkusre = "user0",
+    bkid = "71",
+    bkusre = "user0",
 }
 Result	{
     "status": "200",
