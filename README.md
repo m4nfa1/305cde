@@ -30,7 +30,7 @@ Error	{
 }
 ```
 ----------------------------------------------------------------------------------------------------------------------
- 
+```javascript
 Register
 URI	http://api.m4nfa1.net/305cde/user/register
 Method	POST
@@ -53,9 +53,9 @@ Error	{
     "message": "Error",
     "data": false
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
- 
+```javascript
 User Profile Update
 URI	http://api.m4nfa1.net/305cde/user/update
 Method	GET
@@ -74,9 +74,9 @@ Error	{
     "message": "Not success",
     "data": false
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
- 
+```javascript
 Delete User
 URI	http://api.m4nfa1.net/305cde/user/delete
 Method	GET
@@ -94,9 +94,9 @@ Error	{
     "message": "Bad Request",
     "data": false
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
-
+```javascript
 User Type Filter
 URI	http://api.m4nfa1.net/305cde/user/type
 Method	POST
@@ -127,9 +127,9 @@ Error	{
     "message": "Bad Request",
     "data": null
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
-
+```javascript
 Check User
 URI	http://api.m4nfa1.net/305cde/user/check
 Method	POST
@@ -158,9 +158,9 @@ Error	{
     "message": "Not Found",
     "data": false
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
- 
+```javascript 
 Show All News
 URI	http://api.m4nfa1.net/305cde/news
 Method	GET
@@ -181,9 +181,9 @@ Error	{
     "message": " Bad Request ",
     "data": null
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
- 
+```javascript 
 Check Booking
 URI	http://api.m4nfa1.net/305cde/booking/check
 Method	GET
@@ -210,9 +210,9 @@ Error	{
     "message": "Bad Request",
     "data": null
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
-
+```javascript
 AIDS Test Booking
 URI	http://api.m4nfa1.net/305cde/booking/book
 Method	GET
@@ -233,10 +233,10 @@ Error	{
     "message": "Bad Request",
     "data": null
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
- 
-Delete Booking
+```javascript
+## Delete Booking
 URI	http://api.m4nfa1.net/305cde/booking/delete
 Method	GET
 Data	{
@@ -253,5 +253,5 @@ Error	{
     "message": "Bad Request",
     "data": false
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
