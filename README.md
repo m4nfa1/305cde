@@ -1,10 +1,10 @@
 
 # 305CDE - Developing the Modern Web 2
-# Man Wing Fai - 147377507
-# Demo: http://m4nfa1.net/305cde/
+* Man Wing Fai - 147377507
+* Demo: http://m4nfa1.net/305cde/
 
 --------------------------------------------------------------------------------------------------------------------
-# User Login
+#### User Login
 ```javascript
 URI	http://api.m4nfa1.net/305cde/user/login
 Method	POST
@@ -30,7 +30,7 @@ Error	{
 }
 ```
 ----------------------------------------------------------------------------------------------------------------------
-# Register
+#### Register
 ```javascript
 URI	http://api.m4nfa1.net/305cde/user/register
 Method	POST
@@ -55,7 +55,7 @@ Error	{
 }
 ```
 --------------------------------------------------------------------------------------------------------------------------
-# User Profile Update
+#### User Profile Update
 ```javascript
 URI	http://api.m4nfa1.net/305cde/user/update
 Method	GET
@@ -76,7 +76,7 @@ Error	{
 }
 ```
 --------------------------------------------------------------------------------------------------------------------------
-# Delete User
+#### Delete User
 ```javascript
 URI	http://api.m4nfa1.net/305cde/user/delete
 Method	GET
@@ -96,7 +96,7 @@ Error	{
 }
 ```
 --------------------------------------------------------------------------------------------------------------------------
-# User Type Filter
+#### User Type Filter
 ```javascript
 URI	http://api.m4nfa1.net/305cde/user/type
 Method	POST
@@ -129,7 +129,7 @@ Error	{
 }
 ```
 --------------------------------------------------------------------------------------------------------------------------
-# Check User
+#### Check User
 ```javascript
 URI	http://api.m4nfa1.net/305cde/user/check
 Method	POST
@@ -160,7 +160,7 @@ Error	{
 }
 ```
 --------------------------------------------------------------------------------------------------------------------------
-# Show All News
+#### Show All News
 ```javascript
 URI	http://api.m4nfa1.net/305cde/news
 Method	GET
@@ -183,7 +183,7 @@ Error	{
 }
 ```
 --------------------------------------------------------------------------------------------------------------------------
-# Check Booking
+#### Check Booking
 ```javascript
 URI	http://api.m4nfa1.net/305cde/booking/check
 Method	GET
@@ -212,7 +212,7 @@ Error	{
 }
 ```
 --------------------------------------------------------------------------------------------------------------------------
-# AIDS Test Booking
+#### AIDS Test Booking
 ```javascript
 URI	http://api.m4nfa1.net/305cde/booking/book
 Method	GET
@@ -235,10 +235,10 @@ Error	{
 }
 ```
 --------------------------------------------------------------------------------------------------------------------------
-# Delete Booking
+#### Delete Booking
 ```javascript
-URI	http://api.m4nfa1.net/305cde/booking/delete
-Method	GET
+URI:	http://api.m4nfa1.net/305cde/booking/delete
+Method:	GET
 Data	{
 bkid = "71",
 bkusre = "user0",
