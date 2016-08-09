@@ -33,7 +33,7 @@
             // if user logged, we will hide the signin button and show the signout button
         }
             $.ajax({
-                type: 'POST',
+                type: 'GET',
                 dataType: 'json',
                 url: 'http://www.api.m4nfa1.net/305cde/user/type',
                 data: {
@@ -74,11 +74,11 @@
                 console.log(delname);
                 console.log(delpass);
                 $.ajax({
-                    type: 'GET',
+                    type: 'DELETE',
                     url: 'http://www.api.m4nfa1.net/305cde/user/delete',
                     data: {
-                        usrname: delname,
-                        usrpass: delpass
+                        "usrname": delname,
+                        "usrpass": delpass
                     },
                     success: function(data) {
                         console.log(data);

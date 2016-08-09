@@ -24,7 +24,7 @@
             }
 		$('#usrname').text(sessionStorage.userlogin);
 		 $.ajax({
-		 	type: 'POST',
+		 	type: 'GET',
             dataType: 'json',
                 url: 'http://www.api.m4nfa1.net/305cde/user/check',
                 data: {
@@ -66,7 +66,7 @@ $("form").submit(function(){
 		alert('cannot emtpy');
 	} else {
      $.ajax({  
-    type: 'GET', 
+    type: 'POST', 
     url: 'http://www.api.m4nfa1.net/305cde/user/update', 
     data: {
         usrname: $('#usrname').text(),

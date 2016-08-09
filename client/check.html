@@ -83,11 +83,11 @@
             function deletebooking(delid) {
                 console.log(delid);
                 $.ajax({
-                    type: 'GET',
+                    type: 'DELETE',
                     url: 'http://www.api.m4nfa1.net/305cde/booking/delete',
                     data: {
-                        bkid: delid,
-                        bkuser: sessionStorage.userlogin
+                        "bkid": delid,
+                        "bkuser": sessionStorage.userlogin
                     },
                     success: function(data) {
                         window.location.reload();

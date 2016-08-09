@@ -89,14 +89,14 @@
                     // check the status of return, 200 is OK and 404 is not found the user.
                     if (data.status == '200') {
                         $.ajax({
-                                type: 'GET',
+                                type: 'PUT',
                                 url: 'http://www.api.m4nfa1.net/305cde/booking/book',
                                 data: {
-                                    bklocation: sessionStorage.bookinglocation,
-                                    bktype: sessionStorage.bookingtype,
-                                    bkuser: sessionStorage.userlogin,
-                                    bkdate: $('#bkdate').val(),
-                                    bktime: $('#bktime').val(),
+                                    "bklocation": sessionStorage.bookinglocation,
+                                    "bktype": sessionStorage.bookingtype,
+                                    "bkuser": sessionStorage.userlogin,
+                                    "bkdate": $('#bkdate').val(),
+                                    "bktime": $('#bktime').val(),
                                 },
                                 success: function(data) {
                                     console.log(data);

@@ -60,7 +60,7 @@
 $("form").submit(function(){
 
 $.ajax({  
-    type: 'POST', 
+    type: 'GET', 
     url: 'http://www.api.m4nfa1.net/305cde/user/check', 
     data: {
         usrname: $('#usrname').val(),
@@ -71,14 +71,14 @@ $.ajax({
                     $p2 = $("#usrpass2").val();
          if ($p1==$p2) {
              $.ajax({  
-            type: 'POST', 
+            type: 'PUT', 
             url: 'http://www.api.m4nfa1.net/305cde/user/register', 
             data: {
-                usrname: $('#usrname').val(),
-                usrpass: $('#usrpass').val(),
-                usremail: $('#usremail').val(),
-                usrbday: $('#usrbday').val(),
-                usrgender: $('#usrgender').val(),
+                "usrname": $('#usrname').val(),
+                "usrpass": $('#usrpass').val(),
+                "usremail": $('#usremail').val(),
+                "usrbday": $('#usrbday').val(),
+                "usrgender": $('#usrgender').val(),
             },
             success: function (data) { 
                 console.log(data);
