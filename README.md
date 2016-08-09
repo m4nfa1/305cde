@@ -1,16 +1,16 @@
 
-305CDE - Developing the Modern Web 2
-Man Wing Fai - 147377507
-Demo: http://m4nfa1.net/305cde/
+# 305CDE - Developing the Modern Web 2
+* Man Wing Fai - 147377507
+* Demo: http://m4nfa1.net/305cde/
 
--------------------------------------------------API----------------------------------------------------------------------
-
-User Login
+##API
+#### User Login
+```javascript
 URI	http://api.m4nfa1.net/305cde/user/login
 Method	POST
 Data	{
-usrname = "user1",
-usrpasas = "user1",
+    usrname = "user1",
+    usrpasas = "user1"
 }
 Result	{
     "status": "200",
@@ -28,18 +28,18 @@ Error	{
     "message": "No User",
     "data": false
 }
-
---------------------------------------------------------------------------------------------------------------------------
- 
-Register
+```
+----------------------------------------------------------------------------------------------------------------------
+#### Register
+```javascript
 URI	http://api.m4nfa1.net/305cde/user/register
 Method	POST
 Data	{
-usrname = "user0",
-usrpasas = "user0",
-usremail = "user0@address.com",
-usrbday = "2000-01-01",
-usrgender = "M",
+    usrname = "user0",
+    usrpasas = "user0",
+    usremail = "user0@address.com",
+    usrbday = "2000-01-01",
+    usrgender = "M"
 }
 
 
@@ -53,16 +53,16 @@ Error	{
     "message": "Error",
     "data": false
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
- 
-User Profile Update
+#### User Profile Update
+```javascript
 URI	http://api.m4nfa1.net/305cde/user/update
 Method	GET
 Data	{
-usrname = "user0",
-usrpasas = "000",
-usremail = "user0@address.com"
+    usrname = "user0",
+    usrpasas = "000",
+    usremail = "user0@address.com"
 }
 Result	{
     "status": "200",
@@ -74,15 +74,15 @@ Error	{
     "message": "Not success",
     "data": false
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
- 
-Delete User
+#### Delete User
+```javascript
 URI	http://api.m4nfa1.net/305cde/user/delete
 Method	GET
 Data	{
-usrname = "user0",
-usrpasas = "000",
+    usrname = "user0",
+    usrpasas = "000"
 }
 Result	{
     "status": "200",
@@ -94,14 +94,14 @@ Error	{
     "message": "Bad Request",
     "data": false
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
-
-User Type Filter
+#### User Type Filter
+```javascript
 URI	http://api.m4nfa1.net/305cde/user/type
 Method	POST
 Data	{
-usrtype = "user"
+    usrtype = "user"
 }
 Result	{
     "status": "200",
@@ -127,14 +127,14 @@ Error	{
     "message": "Bad Request",
     "data": null
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
-
-Check User
+#### Check User
+```javascript
 URI	http://api.m4nfa1.net/305cde/user/check
 Method	POST
 Data	{
-usrname = "user0",
+    usrname = "user0",
 }
 Result	{
     "status": "200",
@@ -158,10 +158,10 @@ Error	{
     "message": "Not Found",
     "data": false
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
- 
-Show All News
+#### Show All News
+```javascript
 URI	http://api.m4nfa1.net/305cde/news
 Method	GET
 Data	
@@ -181,14 +181,14 @@ Error	{
     "message": " Bad Request ",
     "data": null
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
- 
-Check Booking
+#### Check Booking
+```javascript
 URI	http://api.m4nfa1.net/305cde/booking/check
 Method	GET
 Data	{
-usrname = "user2",
+    usrname = "user2"
 }
 Result	{
     "status": "200",
@@ -210,18 +210,18 @@ Error	{
     "message": "Bad Request",
     "data": null
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
-
-AIDS Test Booking
+#### AIDS Test Booking
+```javascript
 URI	http://api.m4nfa1.net/305cde/booking/book
 Method	GET
 Data	{
-bklocation = "Central",
-bktype = "Rapid",
-bkuser = "user0"
-bkdate = "2016-08-26",
-bktime = "18:00:00",
+    bklocation = "Central",
+    bktype = "Rapid",
+    bkuser = "user0"
+    bkdate = "2016-08-26",
+    bktime = "18:00:00",
 }
 Result	{
     "status": "200",
@@ -233,15 +233,15 @@ Error	{
     "message": "Bad Request",
     "data": null
 }
-
+```
 --------------------------------------------------------------------------------------------------------------------------
- 
-Delete Booking
+#### Delete Booking
+```javascript
 URI	http://api.m4nfa1.net/305cde/booking/delete
 Method	GET
 Data	{
-bkid = "71",
-bkusre = "user0",
+    bkid = "71",
+    bkusre = "user0",
 }
 Result	{
     "status": "200",
@@ -253,5 +253,5 @@ Error	{
     "message": "Bad Request",
     "data": false
 }
+```
 
----------------------------------------------------END--------------------------------------------------------------------
