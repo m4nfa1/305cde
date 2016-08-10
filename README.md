@@ -9,8 +9,8 @@
 URI	http://api.m4nfa1.net/305cde/user/login
 Method	POST
 Data	{
-    usrname = "user1",
-    usrpasas = "user1"
+    "usrname": "user1",
+    "usrpasas": "user1"
 }
 Result	{
     "status": "200",
@@ -33,16 +33,14 @@ Error	{
 #### Register
 ```javascript
 URI	http://api.m4nfa1.net/305cde/user/register
-Method	POST
+Method	PUT
 Data	{
-    usrname = "user0",
-    usrpasas = "user0",
-    usremail = "user0@address.com",
-    usrbday = "2000-01-01",
-    usrgender = "M"
+    "usrname": "user0",
+    "usrpasas": "user0",
+    "usremail": "user0@address.com",
+    "usrbday": "2000-01-01",
+    "usrgender": "M"
 }
-
-
 Result	{
     "status": "200",
     "message": "ok",
@@ -58,11 +56,11 @@ Error	{
 #### User Profile Update
 ```javascript
 URI	http://api.m4nfa1.net/305cde/user/update
-Method	GET
+Method	POST
 Data	{
-    usrname = "user0",
-    usrpasas = "000",
-    usremail = "user0@address.com"
+    "usrname": "user0",
+    "usrpasas": "000",
+    "usremail": "user0@address.com"
 }
 Result	{
     "status": "200",
@@ -79,10 +77,10 @@ Error	{
 #### Delete User
 ```javascript
 URI	http://api.m4nfa1.net/305cde/user/delete
-Method	GET
+Method	DELETE
 Data	{
-    usrname = "user0",
-    usrpasas = "000"
+    "usrname": "user0",
+    "usrpasas": "000"
 }
 Result	{
     "status": "200",
@@ -99,9 +97,9 @@ Error	{
 #### User Type Filter
 ```javascript
 URI	http://api.m4nfa1.net/305cde/user/type
-Method	POST
+Method	GET
 Data	{
-    usrtype = "user"
+    "usrtype": "user"
 }
 Result	{
     "status": "200",
@@ -132,9 +130,9 @@ Error	{
 #### Check User
 ```javascript
 URI	http://api.m4nfa1.net/305cde/user/check
-Method	POST
+Method	GET
 Data	{
-    usrname = "user0",
+    "usrname": "user0",
 }
 Result	{
     "status": "200",
@@ -164,7 +162,8 @@ Error	{
 ```javascript
 URI	http://api.m4nfa1.net/305cde/news
 Method	GET
-Data	
+Data	{
+}
 Result	{
     "status": "200",
     "message": "Delete success",
@@ -188,7 +187,7 @@ Error	{
 URI	http://api.m4nfa1.net/305cde/booking/check
 Method	GET
 Data	{
-    usrname = "user2"
+    "usrname": "user2"
 }
 Result	{
     "status": "200",
@@ -215,13 +214,13 @@ Error	{
 #### AIDS Test Booking
 ```javascript
 URI	http://api.m4nfa1.net/305cde/booking/book
-Method	GET
+Method	PUT
 Data	{
-    bklocation = "Central",
-    bktype = "Rapid",
-    bkuser = "user0"
-    bkdate = "2016-08-26",
-    bktime = "18:00:00",
+    "bklocation": "Central",
+    "bktype": "Rapid",
+    "bkuser": "user0"
+    "bkdate": "2016-08-26",
+    "bktime": "18:00:00",
 }
 Result	{
     "status": "200",
@@ -238,10 +237,10 @@ Error	{
 #### Delete Booking
 ```javascript
 URI	http://api.m4nfa1.net/305cde/booking/delete
-Method	GET
+Method	DELETE
 Data	{
-    bkid = "71",
-    bkusre = "user0",
+    "bkid: "71",
+    "bkusre": "user0",
 }
 Result	{
     "status": "200",
