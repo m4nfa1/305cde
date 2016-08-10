@@ -174,7 +174,7 @@ Result	{
             "content": "An international conflict research group said South Sudan was… ",
             "image": "e4BElCKbXLS6F8gJS0A.jpg"
         }
- }
+}
 Error	{
     "status": "500",
     "message": " Bad Request ",
@@ -240,7 +240,7 @@ URI	http://api.m4nfa1.net/305cde/booking/delete
 Method	DELETE
 Data	{
     "bkid: "71",
-    "bkusre": "user0",
+    "bkusre": "user0"
 }
 Result	{
     "status": "200",
