@@ -239,7 +239,7 @@ Error	{
 URI	http://api.m4nfa1.net/305cde/booking/delete
 Method	DELETE
 Data	{
-    "bkid: "71",
+    "bkid": "71",
     "bkusre": "user0"
 }
 Result	{
@@ -253,4 +253,3 @@ Error	{
     "data": false
 }
 ```
-
